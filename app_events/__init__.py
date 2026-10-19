@@ -1,0 +1,1 @@
+"""Capa de eventos: contrato compartido, broker Redis y estado de documentos."""

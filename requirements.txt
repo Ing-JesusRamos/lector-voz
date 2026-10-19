@@ -1,0 +1,14 @@
+fastapi
+uvicorn[standard]
+redis
+sse-starlette
+pymupdf
+python-docx
+pytesseract
+pillow
+edge-tts
+pyttsx4
+langdetect
+requests
+python-dotenv
+python-multipart

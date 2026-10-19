@@ -1,0 +1,1 @@
+"""Paquete de consumidores (workers): reaccionan a los eventos del broker."""

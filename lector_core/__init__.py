@@ -1,0 +1,1 @@
+"""Núcleo del lector de voz: extracción, detección, traducción y síntesis."""

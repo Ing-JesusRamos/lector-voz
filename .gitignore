@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.pyc
+*.egg-info/
+
+# Entornos virtuales
+.venv/
+venv/
+env/
+
+# Variables de entorno (se conserva la plantilla)
+.env
+.env.*
+!.env.example
+
+# Empaquetado / build
+build/
+dist/
+
+# Datos locales (binarios descargados o generados)
+data/docs/
+data/audio/
+data/tessdata/
+
+# Sistema y editores
+.DS_Store
+.idea/
+.vscode/

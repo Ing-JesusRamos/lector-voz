@@ -1,0 +1,19 @@
+{
+  "name": "Lector de voz",
+  "short_name": "LectorVoz",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "lang": "es",
+  "categories": ["education", "books"],
+  "background_color": "#0f172a",
+  "theme_color": "#1e293b",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

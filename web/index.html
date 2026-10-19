@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Lector de voz</title>
+  <meta name="description" content="Lee tus documentos con una experiencia de lectura clara y accesible.">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#765800">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <link rel="apple-touch-icon" href="/icon.svg">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+  <header class="topbar">
+    <a class="brand" href="/" aria-label="Lector de voz, inicio">
+      <span class="brand-mark" aria-hidden="true">L</span>
+      <span>Lector de voz</span>
+    </a>
+    <p class="connection-status"><span class="status-dot" aria-hidden="true"></span>Lectura tranquila</p>
+  </header>
+
+  <main id="contenido" class="app-shell">
+    <section class="intro" aria-labelledby="titulo">
+      <p class="eyebrow">Tu espacio de lectura</p>
+      <h1 id="titulo">Escucha. Sigue el texto. Continúa.</h1>
+      <p class="intro-copy">Sube un documento y mantén la vista en el fragmento que está sonando.</p>
+    </section>
+
+    <section id="upload" class="upload-card" aria-labelledby="upload-title">
+      <div class="upload-copy">
+        <p class="section-kicker">Comenzar</p>
+        <h2 id="upload-title">Abre un documento</h2>
+        <p>PDF o DOCX, hasta 25 MB. El texto aparecerá aquí por fragmentos.</p>
+      </div>
+      <label class="file-picker" for="archivo">
+        <span class="file-picker-icon" aria-hidden="true">+</span>
+        <span>
+          <strong>Elegir archivo</strong>
+          <small>También puedes soltarlo aquí</small>
+        </span>
+        <input type="file" id="archivo" accept=".pdf,.docx,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document">
+      </label>
+    </section>
+
+    <section id="controles" class="reader" hidden aria-labelledby="reader-title">
+      <header class="reader-header">
+        <div>
+          <p class="section-kicker">Ahora estás leyendo</p>
+          <h2 id="reader-title">Documento activo</h2>
+        </div>
+        <div class="reader-meta">
+          <span class="language-badge" id="idioma-doc" aria-label="Idioma del documento">--</span>
+          <span id="progreso" class="progress-label">0 de 0</span>
+        </div>
+      </header>
+
+      <div class="progress-track" aria-hidden="true">
+        <span id="barra-progreso" class="progress-value"></span>
+      </div>
+
+      <div class="reader-layout">
+        <article class="text-stage" aria-labelledby="text-title">
+          <div class="text-stage-heading">
+            <p class="eyebrow">Fragmento en lectura</p>
+            <span class="reading-indicator" id="indicador-lectura"><span aria-hidden="true"></span><span>Listo para leer</span></span>
+          </div>
+          <h3 id="text-title" class="visually-hidden">Texto del fragmento actual</h3>
+          <div id="texto-documento" class="texto" aria-live="polite" aria-busy="false"></div>
+        </article>
+
+        <aside class="settings-panel" aria-labelledby="settings-title">
+          <h3 id="settings-title">Preferencias</h3>
+          <label for="idioma-lectura">Leer en</label>
+          <select id="idioma-lectura">
+            <option value="es" selected>Español</option>
+            <option value="en">Inglés</option>
+          </select>
+          <label for="voz">Voz</label>
+          <select id="voz"></select>
+          <label for="velocidad">Velocidad</label>
+          <select id="velocidad">
+            <option value="0.8">Más lenta</option>
+            <option value="1" selected>Normal</option>
+            <option value="1.15">Más rápida</option>
+          </select>
+          <p class="settings-note">Puedes leer mientras escuchas. El resaltado sigue cada palabra del audio.</p>
+        </aside>
+      </div>
+
+      <nav class="player" aria-label="Controles de lectura">
+        <button id="anterior" class="button button-secondary" type="button">Anterior</button>
+        <button id="play" class="button button-primary" type="button">Leer</button>
+        <button id="siguiente" class="button button-secondary" type="button">Siguiente</button>
+      </nav>
+    </section>
+
+    <p id="estado" class="status-message" role="status" aria-live="polite"></p>
+  </main>
+  <audio id="audio" preload="auto"></audio>
+  <script src="/app.js"></script>
+  <script>
+    if ("serviceWorker" in navigator) navigator.serviceWorker.register("/sw.js");
+  </script>
+</body>
+</html>
